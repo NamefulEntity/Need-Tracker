@@ -8,9 +8,34 @@
 import SwiftUI
 
 struct DashboardView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+
+@State private var showAddNeed = false
+
+	var body: some View {
+		NavigationStack {
+			Text("Welcome Back")
+				.font(.largeTitle)
+				.toolbar {
+					ToolbarItem {
+						Button(action: {
+							showAddNeed.toggle()
+						}, label: {
+							Label("Add Item", systemImage: "plus")
+						})
+					}
+				}
+				.sheet(isPresented: $showAddNeed,
+					   content: {
+					NavigationStack {
+						AddNeedView()
+					}
+					.presentationDetents([.medium])
+				})
+
+		}
+
+
+	}
 }
 
 #Preview {

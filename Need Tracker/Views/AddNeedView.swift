@@ -9,31 +9,39 @@ import SwiftUI
 
 struct AddNeedView: View {
 
+	@State private var need = Need(title:"")
 
-	@State private var title: String = ""
-	@State private var description: String = ""
-	@State private var selectedCategory: NeedCategory = .physical
 
-    var body: some View {
-		Form {
-			Section(header: Text("Need Details")) {
-				TextField("Title", text: $title)
-				TextField("Description", text: $description)
-				Picker("Category", selection: $selectedCategory) {
-					ForEach(NeedCategory.allCases) { category in
-						Text(category.rawValue).tag(category)
+
+	@State private var newNeedTitle: String = ""
+	@State private var isDone: Bool = false
+
+
+	var body: some View {
+		NavigationStack {
+
+			Form {
+					TextField("Add Need", text: $newNeedTitle)
+					Toggle("Is Done", isOn: $isDone)
+				}
+			.toolbar {
+				ToolbarItem(placement: .confirmationAction) {
+					Button(action: {}) {
+						Text("Add Need")
 					}
 				}
 			}
-			Button("Save") {
-				viewModel.addNeed(title: title, description: description, category: selectedCategory)
-				presentationMode.wrappedValue.dismiss()
-			}
+
 		}
-		.navigationTitle("Add New Need")
-    }
+	}
 }
 
+
+
+
+
+
 #Preview {
-    AddNeedView()
+	AddNeedView()
 }
+
