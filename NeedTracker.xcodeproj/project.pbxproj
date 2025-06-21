@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		ABF1EACA2DB32A940050A91C /* Need Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Need Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF1EACA2DB32A940050A91C /* NeedTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeedTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +40,7 @@
 		ABF1EACB2DB32A940050A91C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ABF1EACA2DB32A940050A91C /* Need Tracker.app */,
+				ABF1EACA2DB32A940050A91C /* NeedTracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ABF1EAC92DB32A940050A91C /* Need Tracker */ = {
+		ABF1EAC92DB32A940050A91C /* NeedTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ABF1EAD82DB32A970050A91C /* Build configuration list for PBXNativeTarget "Need Tracker" */;
+			buildConfigurationList = ABF1EAD82DB32A970050A91C /* Build configuration list for PBXNativeTarget "NeedTracker" */;
 			buildPhases = (
 				ABF1EAC62DB32A940050A91C /* Sources */,
 				ABF1EAC72DB32A940050A91C /* Frameworks */,
@@ -63,11 +63,11 @@
 			fileSystemSynchronizedGroups = (
 				ABF1EACC2DB32A940050A91C /* Need Tracker */,
 			);
-			name = "Need Tracker";
+			name = NeedTracker;
 			packageProductDependencies = (
 			);
 			productName = "Need Tracker";
-			productReference = ABF1EACA2DB32A940050A91C /* Need Tracker.app */;
+			productReference = ABF1EACA2DB32A940050A91C /* NeedTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ABF1EAC52DB32A940050A91C /* Build configuration list for PBXProject "Need Tracker" */;
+			buildConfigurationList = ABF1EAC52DB32A940050A91C /* Build configuration list for PBXProject "NeedTracker" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ABF1EAC92DB32A940050A91C /* Need Tracker */,
+				ABF1EAC92DB32A940050A91C /* NeedTracker */,
 			);
 		};
 /* End PBXProject section */
@@ -255,11 +255,13 @@
 				DEVELOPMENT_TEAM = LVDP7A2AZ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -284,11 +286,13 @@
 				DEVELOPMENT_TEAM = LVDP7A2AZ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +309,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ABF1EAC52DB32A940050A91C /* Build configuration list for PBXProject "Need Tracker" */ = {
+		ABF1EAC52DB32A940050A91C /* Build configuration list for PBXProject "NeedTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABF1EAD62DB32A970050A91C /* Debug */,
@@ -314,7 +318,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ABF1EAD82DB32A970050A91C /* Build configuration list for PBXNativeTarget "Need Tracker" */ = {
+		ABF1EAD82DB32A970050A91C /* Build configuration list for PBXNativeTarget "NeedTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABF1EAD92DB32A970050A91C /* Debug */,
