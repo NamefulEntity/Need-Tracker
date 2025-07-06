@@ -9,30 +9,15 @@ import SwiftUI
 
 struct AddNeedView: View {
 
-	@State private var need = Need(title:"")
-
-
-
+	@State private var need = Need(title:"", isCompleted: true)
 	@State private var newNeedTitle: String = ""
-	@State private var isDone: Bool = false
+	@State private var isCompleted: Bool = false
 
 
 	var body: some View {
-		NavigationStack {
 
-			Form {
-					TextField("Add Need", text: $newNeedTitle)
-					Toggle("Is Done", isOn: $isDone)
-				}
-			.toolbar {
-				ToolbarItem(placement: .confirmationAction) {
-					Button(action: {}) {
-						Text("Add Need")
-					}
-				}
-			}
 
-		}
+
 	}
 }
 
