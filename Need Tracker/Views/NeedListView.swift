@@ -21,6 +21,12 @@ struct NeedListView: View {
 		// *Rebuild list view with both functioning UI elements and state management*
 	var body: some View {
 
+// List contains each item followed by a toggled checkmark box
+
+
+		// Position a "Plus" button in upper right corner of the view which links navigation to AddNeedView
+
+
 	}
 }
 

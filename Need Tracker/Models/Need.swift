@@ -5,12 +5,12 @@
 //  Created by Timothy Lewis on 4/18/25.
 //
 
-import SwiftUI
+import Foundation
 
 	// Data Model for a Need
-struct Need: Identifiable {
+struct Need: Identifiable, Codable {
 
-	var id = UUID()
+	var id: UUID = UUID()
 	var title: String
 	var isCompleted: Bool
 

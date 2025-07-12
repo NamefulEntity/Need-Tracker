@@ -9,17 +9,23 @@ import SwiftUI
 
 struct AddNeedView: View {
 
-	@State private var need = Need(title:"", isCompleted: true)
-	@State private var newNeedTitle: String = ""
-	@State private var isCompleted: Bool = false
-
+	// Decide which properties would represent adding needs
 
 	var body: some View {
 
+// Textfield to for inputting a need
 
 
-	}
-}
+		// Toggle to mark "Is Done"
+
+
+// Position close button in upper left
+
+
+		// Button labeled "Add Need" in upper right
+
+			}
+		}
 
 
 
