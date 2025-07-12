@@ -13,7 +13,7 @@ struct AddNeedView: View {
 
 	var body: some View {
 
-// Textfield to for inputting a need
+// Textfield for inputing a need
 
 
 		// Toggle to mark "Is Done"
