@@ -10,7 +10,7 @@ import Foundation
 	// Data Model for a Need
 struct Need: Identifiable, Codable {
 
-	var id: UUID = UUID()
+	var id = UUID()
 	var title: String
 	var isCompleted: Bool
 
