@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNeedView: View {
 
-	// Decide which properties would represent adding needs
+	// @State properties that represent adding needs
 	@State private var need: String = ""
 	@State private var isDone: Bool = false
 
@@ -23,16 +23,14 @@ struct AddNeedView: View {
 						// Toggle to mark "Is Done"
 					Toggle("Is Done", isOn: $isDone)
 				}
+					// Button labeled "Add Need". How do we place it in the upper right corner? 
 				Button {
-					print("Need button tapped!")
+
 				} label: {
 					Text("Add Need")
 				}
 			}
 		}
-
-			// Button labeled "Add Need" in upper right
-
 // Position close button in upper left
 
 
