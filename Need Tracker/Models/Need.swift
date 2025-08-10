@@ -8,20 +8,20 @@
 import Foundation
 
 	// Data Model for a Need
-struct Need: Identifiable {
+struct Need: Codable, Identifiable {
 
-	let id = UUID()
+	var id = UUID()
 	var title: String
-	var isCompleted = false
+	var isCompleted: Bool
 
 }
 
 extension Need {
 	static let samples = [
 		Need(title: "Go to Gym", isCompleted: true),
-		Need(title: "Prioritize sleep"),
-		Need(title: "Shop grocery list"),
-		Need(title: "Empty dishwasher"),
+		Need(title: "Prioritize sleep", isCompleted: false),
+		Need(title: "Shop grocery list", isCompleted: false),
+		Need(title: "Empty dishwasher", isCompleted: false),
 	]
 }
 
