@@ -7,6 +7,11 @@ struct AddNeedView: View {
 	@State private var title = ""
 	@State private var isDone = false
 
+	private func saveNeedItem() {
+		_ = Need(title: title, isCompleted: false)
+
+	}
+
 	var body: some View {
 		VStack(spacing: 20) {
 				// Close Button
@@ -22,6 +27,9 @@ struct AddNeedView: View {
 			HStack {
 				TextField("Enter item title", text: $title)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
+					.onSubmit {
+						saveNeedItem()
+					}
 				Button("Add Need") {
 					guard !title.isEmpty else { return }
 					viewModel.addNeedItem(title: title, isDone: isDone)
