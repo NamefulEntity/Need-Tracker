@@ -21,6 +21,13 @@ struct AddNeedView: View {
 				}
 				.padding(.leading)
 				Spacer()
+
+				Button("Add Need") {
+					guard !title.isEmpty else { return }
+					viewModel.addNeedItem(title: title, isDone: isDone)
+					dismiss()
+				}
+				.padding(.horizontal)
 			}
 
 				// TextField and Add Button
@@ -30,12 +37,7 @@ struct AddNeedView: View {
 					.onSubmit {
 						saveNeedItem()
 					}
-				Button("Add Need") {
-					guard !title.isEmpty else { return }
-					viewModel.addNeedItem(title: title, isDone: isDone)
-					dismiss()
-				}
-				.padding(.horizontal)
+
 			}
 
 				// Toggle
