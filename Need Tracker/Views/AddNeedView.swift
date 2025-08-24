@@ -1,46 +1,44 @@
-//
-//  AddNeedView.swift
-//  Need Tracker
-//
-//  Created by Timothy Lewis on 4/19/25.
-//
-
 import SwiftUI
 
 struct AddNeedView: View {
+	@Environment(\.dismiss) var dismiss
+	@ObservedObject var viewModel: NeedViewModel
 
-	// @State properties that represent adding needs
-	@State private var need: String = ""
-	@State private var isDone: Bool = false
+	@State private var title = ""
+	@State private var isDone = false
 
 	var body: some View {
-
-// Textfield for inputing a need
-		NavigationStack {
-			Form {
-				Section(header: Text("Add a need")) {
-					TextField("Type need here", text: $need)
-						// Toggle to mark "Is Done"
-					Toggle("Is Done", isOn: $isDone)
+		VStack(spacing: 20) {
+				// Close Button
+			HStack {
+				Button("Close") {
+					dismiss()
 				}
-					// Button labeled "Add Need". How do we place it in the upper right corner? 
-				Button {
+				.padding(.leading)
+				Spacer()
+			}
 
-				} label: {
-					Text("Add Need")
+				// TextField and Add Button
+			HStack {
+				TextField("Enter item title", text: $title)
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+				Button("Add Need") {
+					guard !title.isEmpty else { return }
+					viewModel.addNeedItem(title: title, isDone: isDone)
+					dismiss()
 				}
+				.padding(.horizontal)
 			}
+
+				// Toggle
+			Toggle("Is Done", isOn: $isDone)
+				.padding(.horizontal)
+
+			Spacer()
 		}
-// Position close button in upper left
-
-
-
-			}
-		}
-
-
-
-#Preview {
-	AddNeedView()
+	}
 }
 
+#Preview {
+	AddNeedView(viewModel: NeedViewModel())
+}

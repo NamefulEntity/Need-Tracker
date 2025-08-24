@@ -1,15 +1,8 @@
-//
-//  DashboardView.swift
-//  Need Tracker
-//
-//  Created by Timothy Lewis on 4/19/25.
-//
-
 import SwiftUI
 
 struct DashboardView: View {
-
-@State private var showAddNeed = false
+	@State private var showAddNeed = false
+	@StateObject private var viewModel = NeedViewModel() // Create an instance of NeedViewModel
 
 	var body: some View {
 		NavigationStack {
@@ -20,24 +13,20 @@ struct DashboardView: View {
 						Button(action: {
 							showAddNeed.toggle()
 						}, label: {
-							Label("Add Item", systemImage: "plus")
+							Label("Add Need", systemImage: "plus")
 						})
 					}
 				}
-				.sheet(isPresented: $showAddNeed,
-					   content: {
+				.sheet(isPresented: $showAddNeed) {
 					NavigationStack {
-						AddNeedView()
+						AddNeedView(viewModel: viewModel) // Pass the instance of NeedViewModel
 					}
 					.presentationDetents([.medium])
-				})
-
+				}
 		}
-
-
 	}
 }
 
 #Preview {
-    DashboardView()
+	DashboardView()
 }
