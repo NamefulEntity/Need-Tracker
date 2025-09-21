@@ -2,53 +2,57 @@ import SwiftUI
 
 struct AddNeedView: View {
 	@Environment(\.dismiss) var dismiss
-	@ObservedObject var viewModel: NeedViewModel
-
-	@State private var title = ""
-	@State private var isDone = false
-
-	private func saveNeedItem() {
-		_ = Need(title: title, isCompleted: false)
-
-	}
+	@Binding var need: [Need]
+	@State var title = ""
+	@State var isDone = false
 
 	var body: some View {
-		VStack(spacing: 20) {
-				// Close Button
-			HStack {
-				Button("Close") {
-					dismiss()
+		NavigationStack {
+			Form {
+				Section(header: Text("Add a need")) {
+					TextField("Type need here", text: $title)
+					Toggle("Is Done", isOn: $isDone)
 				}
-				.padding(.leading)
-				Spacer()
-
-				Button("Add Need") {
-					guard !title.isEmpty else { return }
-					viewModel.addNeedItem(title: title, isDone: isDone)
-					dismiss()
-				}
-				.padding(.horizontal)
 			}
-
-				// TextField and Add Button
-			HStack {
-				TextField("Enter item title", text: $title)
-					.textFieldStyle(RoundedBorderTextFieldStyle())
-					.onSubmit {
-						saveNeedItem()
+			.navigationTitle("Add Need")
+			.navigationBarTitleDisplayMode(.large)
+			.toolbar {
+				ToolbarItem(placement: .cancellationAction) {
+					Button("Close") {
+						dismiss()
 					}
-
+				}
+				ToolbarItem(placement: .topBarTrailing) {
+					Button("Add Need") {
+						addNeedIfPossible()
+					}
+					.disabled(title.isEmpty)
+				}
 			}
-
-				// Toggle
-			Toggle("Is Done", isOn: $isDone)
-				.padding(.horizontal)
-
-			Spacer()
 		}
+	}
+
+	func addNeedIfPossible() {
+		guard !title.isEmpty else { return }
+		need.append(Need(title: title, isCompleted: isDone))
+		dismiss()
 	}
 }
 
+struct StatefulPreviewWrapper<Value, Content: View>: View {
+    @State private var value: Value
+    private let content: (Binding<Value>) -> Content
+    init(_ initialValue: Value, @ViewBuilder content: @escaping (Binding<Value>) -> Content) {
+        _value = State(initialValue: initialValue)
+        self.content = content
+    }
+    var body: some View { content($value) }
+}
+
 #Preview {
-	AddNeedView(viewModel: NeedViewModel())
+	NavigationStack {
+		StatefulPreviewWrapper(Need.samples) { binding in
+			AddNeedView(need: binding)
+		}
+	}
 }

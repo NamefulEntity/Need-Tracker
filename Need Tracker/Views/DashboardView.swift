@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DashboardView: View {
 	@State private var showAddNeed = false
-	@StateObject private var viewModel = NeedViewModel() // Create an instance of NeedViewModel
+	@State private var need: [Need] = []
 
 	var body: some View {
 		NavigationStack {
@@ -19,7 +19,7 @@ struct DashboardView: View {
 				}
 				.sheet(isPresented: $showAddNeed) {
 					NavigationStack {
-						AddNeedView(viewModel: viewModel) // Pass the instance of NeedViewModel
+						AddNeedView(need: $need)
 					}
 					.presentationDetents([.medium])
 				}

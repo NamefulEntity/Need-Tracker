@@ -11,7 +11,7 @@ import SwiftUI
 struct NeedTrackerApp: App {
     var body: some Scene {
         WindowGroup {
-            DashboardView()
+            NeedListView()
         }
     }
 }
