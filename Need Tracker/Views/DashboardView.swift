@@ -19,7 +19,7 @@ struct DashboardView: View {
 				}
 				.sheet(isPresented: $showAddNeed) {
 					NavigationStack {
-						AddNeedView(need: $need)
+						AddNeedView(needs: $need)
 					}
 					.presentationDetents([.medium])
 				}

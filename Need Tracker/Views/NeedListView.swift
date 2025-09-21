@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct NeedListView: View {
-	@State private var needs: [Need] = []
+	@Binding var needs: [Need]
 	@State private var showAddNeed = false
 
 	var body: some View {
@@ -49,12 +49,12 @@ struct NeedListView: View {
 			}
 				// Present AddNeedView
 			.sheet(isPresented: $showAddNeed) {
-				AddNeedView(need: $needs)
+				AddNeedView(needs: $needs)
 			}
 		}
 	}
 }
 
 #Preview {
-	NeedListView()
+    NeedListView(needs: .constant(Need.samples))
 }
