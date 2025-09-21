@@ -8,7 +8,7 @@
 import Foundation
 
 	// Data Model for a Need
-struct Need: Codable, Identifiable {
+struct Need: Codable, Identifiable, Equatable {
 
 	var id = UUID()
 	var title: String

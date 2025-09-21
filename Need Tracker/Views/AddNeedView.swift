@@ -2,7 +2,7 @@ import SwiftUI
 
 struct AddNeedView: View {
 	@Environment(\.dismiss) var dismiss
-	@Binding var need: [Need]
+	@Binding var needs: [Need]
 	@State var title = ""
 	@State var isDone = false
 
@@ -34,7 +34,7 @@ struct AddNeedView: View {
 
 	func addNeedIfPossible() {
 		guard !title.isEmpty else { return }
-		need.append(Need(title: title, isCompleted: isDone))
+		needs.append(Need(title: title, isCompleted: isDone))
 		dismiss()
 	}
 }
@@ -52,7 +52,7 @@ struct StatefulPreviewWrapper<Value, Content: View>: View {
 #Preview {
 	NavigationStack {
 		StatefulPreviewWrapper(Need.samples) { binding in
-			AddNeedView(need: binding)
+			AddNeedView(needs: binding)
 		}
 	}
 }
