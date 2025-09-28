@@ -38,7 +38,7 @@ struct NeedListView: View {
 			.onAppear {
 				loadNeeds()
 			}
-			.onChange(of: needsList) { _ in
+			.onChange(of: needsList, initial: true) { oldValue, newValue in
 				saveNeeds()
 			}
 			.toolbar {
