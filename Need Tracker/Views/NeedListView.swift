@@ -54,7 +54,7 @@ struct NeedListView: View {
 		}
 			// Present AddNeedView
 		.sheet(isPresented: $showAddNeed) {
-			AddNeedView()
+			AddNeedView(needs: $needs)
 		}
 	}
 }
@@ -62,3 +62,4 @@ struct NeedListView: View {
 #Preview {
     NeedListView(name: "Makeover")
 }
+

@@ -10,37 +10,40 @@ import SwiftUI
 struct AddNeedView: View {
 
 	// @State properties that represent adding needs
-	@State private var need: String = ""
-	@State private var isDone: Bool = false
+	@Environment(\.dismiss) var dismiss
+	@Binding var needs: [Need]
+	@State var title = ""
+	@State var isDone = false
 
 	var body: some View {
 
-// Textfield for inputing a need
 		NavigationStack {
 			Form {
 				Section(header: Text("Add a need")) {
-					TextField("Type need here", text: $need)
-						// Toggle to mark "Is Done"
+					TextField("Type need here", text: $title)
 					Toggle("Is Done", isOn: $isDone)
 				}
-					// Button labeled "Add Need". How do we place it in the upper right corner? 
-				Button {
+			}
+			.navigationTitle("Add Need")
+			.navigationBarTitleDisplayMode(.large)
+			.toolbar {
+				ToolbarItem(placement: .cancellationAction) {
+					Button("Close") {
+						dismiss()
+					}
+				}
+				ToolbarItem(placement: .topBarTrailing) {
+					Button("Add Need") {
 
-				} label: {
-					Text("Add Need")
+					}
+					.disabled(title.isEmpty)
 				}
 			}
-		}
-// Position close button in upper left
-
-
-
 			}
 		}
-
+	}
 
 
 #Preview {
-	AddNeedView()
+    AddNeedView(needs: .constant([]))
 }
-

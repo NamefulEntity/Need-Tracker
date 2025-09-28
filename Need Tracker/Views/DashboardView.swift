@@ -10,6 +10,7 @@ import SwiftUI
 struct DashboardView: View {
 
 @State private var showAddNeed = false
+@State private var needs: [Need] = []
 
 	var body: some View {
 		NavigationStack {
@@ -27,7 +28,7 @@ struct DashboardView: View {
 				.sheet(isPresented: $showAddNeed,
 					   content: {
 					NavigationStack {
-						AddNeedView()
+						AddNeedView(needs: $needs)
 					}
 					.presentationDetents([.medium])
 				})
@@ -39,5 +40,5 @@ struct DashboardView: View {
 }
 
 #Preview {
-    DashboardView()
+	NeedListView(name: "Get a Makover")
 }
