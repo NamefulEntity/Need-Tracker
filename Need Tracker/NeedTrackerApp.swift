@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct NeedTrackerApp: App {
-    @State private var needs: [Need] = []
+	@AppStorage("showNeeds") private var showNeeds: Bool = true
 
-    var body: some Scene {
+	var body: some Scene {
 		WindowGroup {
-			NeedListView(needs: $needs)
+			if showNeeds {
+				NeedListView()
+			}
 		}
-    }
+	}
 }
